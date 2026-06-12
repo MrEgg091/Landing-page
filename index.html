@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether OS — Spatial Computing Unbound</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #f3f4f6; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-dark { background: rgba(3, 7, 18, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .text-gradient { background: linear-gradient(135deg, #ffffff 0%, #9ca3af 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .brand-gradient { background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%); }
+        .span-gradient { background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #60a5fa 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .glow { box-shadow: 0 0 50px -10px rgba(168, 85, 247, 0.2); }
+    </style>
+</head>
+<body x-data="{ mobileMenu: false, monthlyBilling: true }" class="antialiased">
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass-dark transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-10 h-10 rounded-xl brand-gradient flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/20">
+                    <i data-lucide="layers" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">AETHER<span class="text-purple-500">.</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#specs" class="hover:text-white transition-colors">Specifications</a>
+                <a href="#ecosystem" class="hover:text-white transition-colors">Ecosystem</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#pricing" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-black hover:bg-gray-200 transition-all duration-300 shadow-xl shadow-white/5">
+                    Pre-order Now
+                </a>
+            </div>
+
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-gray-400 hover:text-white focus:outline-none z-50">
+                <i data-lucide="menu" x-show="!mobileMenu" class="w-6 h-6"></i>
+                <i data-lucide="x" x-show="mobileMenu" class="w-6 h-6" x-cloak></i>
+            </button>
+        </div>
+
+        <div x-show="mobileMenu" x-transition class="md:hidden absolute top-20 left-0 w-full bg-gray-950/95 backdrop-blur-xl border-b border-gray-800 px-6 py-6 space-y-4" x-cloak>
+            <a href="#features" @click="mobileMenu = false" class="block text-gray-300 hover:text-white py-2">Features</a>
+            <a href="#specs" @click="mobileMenu = false" class="block text-gray-300 hover:text-white py-2">Specifications</a>
+            <a href="#ecosystem" @click="mobileMenu = false" class="block text-gray-300 hover:text-white py-2">Ecosystem</a>
+            <a href="#pricing" @click="mobileMenu = false" class="block text-gray-300 hover:text-white py-2">Pricing</a>
+            <a href="#pricing" @click="mobileMenu = false" class="block w-full text-center px-5 py-3 rounded-xl bg-white text-black font-semibold">Pre-order Now</a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-16 px-6">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 brand-gradient rounded-full blur-[140px] opacity-20 pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[140px] opacity-10 pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs font-semibold tracking-wide text-purple-400 uppercase">
+                <span class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span> Shipping Globally Fall 2026
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-[1.1] text-gradient">
+                The world is your <br> <span class="span-gradient">digital canvas.</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed">
+                Meet Aether Frames. Zero-weight standalone spatial eyewear designed to blend high-fidelity neural graphics into your natural field of view seamlessly.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold bg-white text-black hover:bg-gray-200 transition-all duration-300 flex items-center justify-center gap-2 shadow-2xl shadow-white/10 group">
+                    Reserve Your Pair <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#features" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold glass text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+                    Watch Keynote <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i>
+                </a>
+            </div>
+
+            <div class="pt-16 max-w-4xl mx-auto relative group">
+                <div class="absolute inset-0 brand-gradient rounded-3xl opacity-20 blur-3xl group-hover:opacity-30 transition-opacity duration-700"></div>
+                <div class="relative rounded-3xl border border-gray-800 overflow-hidden bg-gray-900/50 p-4 shadow-2xl glow">
+                    <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=1200" alt="Aether Glasses Sleek Render" class="w-full h-auto object-cover rounded-2xl transform hover:scale-[1.01] transition-transform duration-700">
+                    
+                    <div class="absolute bottom-10 left-10 glass rounded-2xl p-4 text-left hidden md:block">
+                        <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Weight</p>
+                        <p class="text-xl font-bold text-white">42 Grams</p>
+                    </div>
+                    <div class="absolute top-10 right-10 glass rounded-2xl p-4 text-left hidden md:block">
+                        <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Display</p>
+                        <p class="text-xl font-bold text-white">Dual Micro-OLED 8K</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 border-y border-gray-900 bg-gray-950/40">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-xs font-bold uppercase tracking-widest text-gray-500 mb-10">Praised by Global Innovators & Tech Leads</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
+                <span class="text-xl font-extrabold tracking-wider text-gray-400">WIRED</span>
+                <span class="text-xl font-extrabold tracking-wider text-gray-400">TECHCRUNCH</span>
+                <span class="text-xl font-extrabold tracking-wider text-gray-400">THE VERGE</span>
+                <span class="text-xl font-extrabold tracking-wider text-gray-400">FORBES</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-32 px-6 max-w-7xl mx-auto space-y-24">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-purple-500">Engineering Marvel</h2>
+            <p class="text-3xl md:text-5xl font-bold tracking-tight text-gradient">Tomorrow's technology, condensed into everyday wear.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-3xl hover:border-gray-700 transition-all duration-300 flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Retinal Retina Pro Projection</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">Direct micro-photon beams paint 8K visuals seamlessly right onto your retina. No eye fatigue, completely crisp outdoors.</p>
+                </div>
+                <div class="pt-6 text-xs text-purple-400 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all cursor-pointer">
+                    Explore Optics <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl hover:border-gray-700 transition-all duration-300 flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Neural Processing Unit</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">Powered by our custom proprietary 2nm dynamic chip, optimizing local telemetry and AI operations under 1.2 Watts.</p>
+                </div>
+                <div class="pt-6 text-xs text-indigo-400 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all cursor-pointer">
+                    Architecture Specs <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl hover:border-gray-700 transition-all duration-300 flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Privacy-First Passthrough</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">Zero on-device data streams ever leave your hardware profile. Completely encrypted spatial mappings built on hardware level security layers.</p>
+                </div>
+                <div class="pt-6 text-xs text-blue-400 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all cursor-pointer">
+                    Privacy Framework <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ecosystem" class="py-24 bg-gradient-to-b from-transparent via-gray-950 to-transparent">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-500">Unrestricted Software</span>
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white">Spatial OS. Everything you ever do, maximized.</h2>
+                </div>
+                <p class="text-gray-400 leading-relaxed">
+                    Say goodbye to restrictive hardware bounds. Control workflows, high-precision code editors, spreadsheets, and collaborative design assets floating dynamically around you.
+                </p>
+
+                <div x-data="{ openTab: 1 }" class="space-y-3">
+                    <div class="border border-gray-800 rounded-2xl p-4 cursor-pointer transition-colors" :class="openTab === 1 ? 'bg-gray-900 border-gray-700' : 'hover:bg-gray-900/40'" @click="openTab = 1">
+                        <div class="flex items-center gap-3 font-semibold text-white">
+                            <i data-lucide="code" class="w-5 h-5 text-purple-400"></i> Infinite Code Canvas
+                        </div>
+                        <div x-show="openTab === 1" x-transition class="text-sm text-gray-400 mt-2 pl-8 leading-relaxed">
+                            Project thousands of terminal lines in full 3D layout around your workstation workspace. Ideal for intense bug hunting and multi-project reviews.
+                        </div>
+                    </div>
+                    <div class="border border-gray-800 rounded-2xl p-4 cursor-pointer transition-colors" :class="openTab === 2 ? 'bg-gray-900 border-gray-700' : 'hover:bg-gray-900/40'" @click="openTab = 2">
+                        <div class="flex items-center gap-3 font-semibold text-white">
+                            <i data-lucide="briefcase" class="w-5 h-5 text-indigo-400"></i> Fluid Workspace Synced
+                        </div>
+                        <div x-show="openTab === 2" x-transition class="text-sm text-gray-400 mt-2 pl-8 leading-relaxed">
+                            Instantly sync with macOS, Linux, and Windows machines simply by looking directly over your system screens.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative rounded-3xl overflow-hidden border border-gray-800 bg-gray-900/30 p-2">
+                <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&q=80&w=800" alt="Spatial OS Interface Demonstration" class="rounded-2xl w-full object-cover aspect-square shadow-xl">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent flex items-end p-8">
+                    <div class="glass p-6 rounded-2xl w-full flex items-center justify-between">
+                        <div>
+                            <p class="text-white font-semibold">Workspace Mode v4.2</p>
+                            <p class="text-xs text-gray-400">Active telemetry connection secure</p>
+                        </div>
+                        <div class="h-3 w-3 bg-green-400 rounded-full flex relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="py-24 max-w-5xl mx-auto px-6">
+        <div class="text-center space-y-4 mb-16">
+            <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">The Technical Breakdown</h2>
+            <p class="text-gray-400">No compromises. Engineered perfectly for continuous daily deployment workflows.</p>
+        </div>
+
+        <div class="border border-gray-800 rounded-3xl overflow-hidden glass overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[500px]">
+                <thead>
+                    <tr class="border-b border-gray-800 bg-white/5">
+                        <th class="p-6 text-sm font-bold uppercase text-gray-400 tracking-wider">Metric Component</th>
+                        <th class="p-6 text-sm font-bold uppercase text-gray-400 tracking-wider">Aether Glass Pro</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-900 text-sm">
+                    <tr>
+                        <td class="p-6 font-medium text-gray-300">Optics & Projection</td>
+                        <td class="p-6 text-gray-400">Dual holographic waveguide displays, peak 6,000 nits contrast luminance</td>
+                    </tr>
+                    <tr>
+                        <td class="p-6 font-medium text-gray-300">Sensors Matrix</td>
+                        <td class="p-6 text-gray-400">6x high-frequency LiDAR modules, 2x thermal iris capture nodes</td>
+                    </tr>
+                    <tr>
+                        <td class="p-6 font-medium text-gray-300">Battery Operations</td>
+                        <td class="p-6 text-gray-400">Up to 8 hours active projection, instant wireless fast-charging inside case</td>
+                    </tr>
+                    <tr>
+                        <td class="p-6 font-medium text-gray-300">Connectivity Systems</td>
+                        <td class="p-6 text-gray-400">Wi-Fi 7 ultra spectrum, Bluetooth 5.4, custom private high-bandwidth RF band</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-32 px-6 max-w-7xl mx-auto space-y-16 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none"></div>
+
+        <div class="text-center space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-purple-400">Transparent Offerings</span>
+            <h2 class="text-3xl md:text-6xl font-bold tracking-tight text-white">Choose your reality interface.</h2>
+            
+            <div class="inline-flex items-center gap-3 bg-gray-900 p-1.5 rounded-xl border border-gray-800">
+                <button @click="monthlyBilling = true" :class="monthlyBilling ? 'bg-white text-black font-semibold' : 'text-gray-400'" class="px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-pointer">Standard Tier</button>
+                <button @click="monthlyBilling = false" :class="!monthlyBilling ? 'bg-white text-black font-semibold' : 'text-gray-400'" class="px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-pointer">Enterprise Bundle</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="glass p-10 rounded-3xl border border-gray-800 flex flex-col justify-between space-y-12 relative overflow-hidden">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Developer Edition</h3>
+                        <p class="text-sm text-gray-400 mt-1">Perfect for solo optimization engineers and enthusiasts.</p>
+                    </div>
+                    <div class="py-4">
+                        <span class="text-5xl font-extrabold text-white tracking-tight" x-text="monthlyBilling ? '$1,499' : '$1,299'"></span>
+                        <span class="text-gray-400 text-sm font-medium">/ upfront reservation</span>
+                    </div>
+                    <ul class="space-y-4 border-t border-gray-900 pt-6 text-sm text-gray-300">
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Full SDK access layer APIs</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Aether Glasses custom fitted hardware</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Standard 1 Year hardware warranty</li>
+                        <li class="flex items-center gap-3 text-gray-500"><i data-lucide="x" class="w-4 h-4"></i> Dedicated engineering success lead</li>
+                    </ul>
+                </div>
+                <button class="w-full py-4 rounded-xl font-semibold border border-gray-700 text-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer">
+                    Reserve Base Variant
+                </button>
+            </div>
+
+            <div class="p-10 rounded-3xl bg-gradient-to-b from-purple-950/40 to-indigo-950/20 border-2 border-purple-500/50 flex flex-col justify-between space-y-12 relative overflow-hidden shadow-2xl shadow-purple-500/5">
+                <div class="absolute top-0 right-0 bg-purple-500 text-white text-xs uppercase font-extrabold px-4 py-1.5 rounded-bl-xl tracking-wider">
+                    Most Popular
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Enterprise Team Bundle</h3>
+                        <p class="text-sm text-gray-300 mt-1">Tailored explicitly for massive multi-user production fleets.</p>
+                    </div>
+                    <div class="py-4">
+                        <span class="text-5xl font-extrabold text-white tracking-tight" x-text="monthlyBilling ? '$3,999' : '$3,499'"></span>
+                        <span class="text-gray-300 text-sm font-medium">/ system license</span>
+                    </div>
+                    <ul class="space-y-4 border-t border-purple-900/40 pt-6 text-sm text-gray-200">
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Everything inside Developer pack</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Secure centralized cloud data telemetry</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Zero-latency workspace multi-sharing</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> 24/7 priority enterprise support SLAs</li>
+                    </ul>
+                </div>
+                <button class="w-full py-4 rounded-xl font-semibold brand-gradient text-white hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/20 cursor-pointer">
+                    Secure Enterprise Node
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-900 text-center space-y-8">
+        <i data-lucide="quote" class="w-10 h-10 mx-auto text-purple-500/40 fill-purple-500/10"></i>
+        <blockquote class="text-xl md:text-3xl font-medium tracking-tight text-gray-200 leading-relaxed">
+            "Aether Glasses completely reimagined our security operations center strategy. We can visualize threat anomalies dynamically across massive global architectures without looking at a classic desk monitor array."
+        </blockquote>
+        <div>
+            <p class="font-bold text-white">Marcus Vance</p>
+            <p class="text-sm text-gray-500 uppercase tracking-widest mt-0.5">Director of Infrastructure at Synthetix Labs</p>
+        </div>
+    </section>
+
+    <footer class="border-t border-gray-900 bg-gray-950 pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-6 space-y-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg brand-gradient flex items-center justify-center text-white font-bold text-lg">
+                            <i data-lucide="layers" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white tracking-tight">AETHER</span>
+                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed">Synthesizing cutting edge hardware interfaces with local machine operations perfectly.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Core Ecosystem</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Spatial Studio OS</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Developer Kit API</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Telemetry Node App</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Hardware Blueprint</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Whitepaper v2</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Security Sandbox</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Subscribe to Releases</h4>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="dev@domain.com" class="bg-gray-900 border border-gray-800 text-sm px-4 py-2.5 rounded-xl w-full text-white focus:outline-none focus:border-purple-500">
+                        <button class="px-4 py-2.5 bg-white text-black rounded-xl font-bold hover:bg-gray-200 transition-colors cursor-pointer"><i data-lucide="send" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <div class="space-y-2 text-center sm:text-left">
+                    <p>&copy; 2026 Aether Technologies Inc. All structural spatial patents filed under active legal framework.</p>
+                    <p class="text-purple-400 font-semibold tracking-wider uppercase text-[10px]">Its a fictional product for showcase. NOT REAL</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-400">Terms of Deployment</a>
+                    <a href="#" class="hover:text-gray-400">Encryption Standard Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
